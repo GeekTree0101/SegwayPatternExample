@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FlexLayout",
+        "repositoryURL": "git@github.com:layoutBox/FlexLayout.git",
+        "state": {
+          "branch": null,
+          "revision": "20e3c006d9415801b3feeac14ca8398b4d6fe37e",
+          "version": "1.3.22"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
