@@ -14,17 +14,15 @@ class DetailPresenterTests: XCTestCase {
   final class DetailDataStoreStub: DetailDataStore {
 
     var article: Article?
-
-    init(article: Article?) {
-      self.article = article
-    }
   }
 
   var dataStore: DetailDataStoreStub!
   var presenter: DetailPresenter!
 
   override func setUpWithError() throws {
+    self.dataStore = DetailDataStoreStub()
     self.presenter = DetailPresenter()
+    self.presenter.dataStore = self.dataStore
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
 
@@ -34,19 +32,15 @@ class DetailPresenterTests: XCTestCase {
 
   func test_makeContent_return_expected_info() {
     // given
-    self.dataStore = DetailDataStoreStub(
-      article: Article(
-        id: 1,
-        title: "test",
-        content: "test",
-        user: User(id: 1, name: "david"),
-        comments: [
-          Comment(id: 1, user: User(id: 1, name: "david"), content: "test")
-        ]
-      )
+    self.dataStore.article = Article(
+      id: 1,
+      title: "test",
+      content: "test",
+      user: User(id: 1, name: "david"),
+      comments: [
+        Comment(id: 1, user: User(id: 1, name: "david"), content: "test")
+      ]
     )
-
-    self.presenter.dataStore = self.dataStore
 
     // when
     self.presenter.makeContent()
@@ -57,19 +51,15 @@ class DetailPresenterTests: XCTestCase {
 
   func test_makeContent_return_expected_comments() {
     // given
-    self.dataStore = DetailDataStoreStub(
-      article: Article(
-        id: 1,
-        title: "test",
-        content: "test",
-        user: User(id: 1, name: "david"),
-        comments: [
-          Comment(id: 1, user: User(id: 1, name: "david"), content: "test")
-        ]
-      )
+    self.dataStore.article = Article(
+      id: 1,
+      title: "test",
+      content: "test",
+      user: User(id: 1, name: "david"),
+      comments: [
+        Comment(id: 1, user: User(id: 1, name: "david"), content: "test")
+      ]
     )
-
-    self.presenter.dataStore = self.dataStore
 
     // when
     self.presenter.makeContent()

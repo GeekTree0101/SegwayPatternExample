@@ -71,13 +71,7 @@ final class DetailViewController: UIViewController {
       do {
         // business logic processing
         try await self.interactor?.fetch()
-        try await self.interactor?.fetch()
-        try await self.interactor?.fetch()
-        try await self.interactor?.fetch()
-        try await self.interactor?.fetch()
-        try await self.interactor?.fetch()
-        try await self.interactor?.fetch()
-
+        
         // presentation logic processing
         self.presenter?.makeContent()
 
