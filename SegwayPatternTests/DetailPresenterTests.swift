@@ -17,13 +17,15 @@ class DetailPresenterTests: XCTestCase {
   }
 
   var dataStore: DetailDataStoreStub!
-  var presenter: DetailPresenter!
 
   override func setUpWithError() throws {
     self.dataStore = DetailDataStoreStub()
-    self.presenter = DetailPresenter()
-    self.presenter.dataStore = self.dataStore
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  }
+
+  private func createPresenter() -> DetailPresenter {
+    let presenter = DetailPresenter()
+    presenter.dataStore = self.dataStore
+    return presenter
   }
 
   override func tearDownWithError() throws {
@@ -32,6 +34,8 @@ class DetailPresenterTests: XCTestCase {
 
   func test_makeContent_return_expected_info() {
     // given
+    let presenter = self.createPresenter()
+
     self.dataStore.article = Article(
       id: 1,
       title: "test",
@@ -43,14 +47,16 @@ class DetailPresenterTests: XCTestCase {
     )
 
     // when
-    self.presenter.makeContent()
+    presenter.makeContent()
 
     // then
-    XCTAssertEqual(self.presenter.info?.title, "❤️\ntest")
+    XCTAssertEqual(presenter.info?.title, "❤️\ntest")
   }
 
   func test_makeContent_return_expected_comments() {
     // given
+    let presenter = self.createPresenter()
+
     self.dataStore.article = Article(
       id: 1,
       title: "test",
@@ -62,11 +68,11 @@ class DetailPresenterTests: XCTestCase {
     )
 
     // when
-    self.presenter.makeContent()
+    presenter.makeContent()
 
     // then
-    XCTAssertEqual(self.presenter.comments.count, 1)
-    XCTAssertEqual(self.presenter.comments.first?.content, "test")
-    XCTAssertEqual(self.presenter.comments.first?.author, "david")
+    XCTAssertEqual(presenter.comments.count, 1)
+    XCTAssertEqual(presenter.comments.first?.content, "test")
+    XCTAssertEqual(presenter.comments.first?.author, "david")
   }
 }
