@@ -21,36 +21,17 @@ final class DetailViewController: UIViewController {
   }
 
   // MARK: Prop
-  private var presenter: DetailPresenterLogic?
-  private var interactor: DetailBusinessLogic?
+  private let presenter: DetailPresenterLogic
+  private let interactor: DetailBusinessLogic
 
-  init(articleID: Int) {
+  init(interactor: DetailBusinessLogic, presenter: DetailPresenterLogic) {
+    self.interactor = interactor
+    self.presenter = presenter
     super.init(nibName: nil, bundle: nil)
-    self.configure(articleID: articleID)
   }
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-
-  func configure(articleID: Int) {
-    let viewController = self
-    let interactor = DetailInteractor(
-      articleID: articleID,
-      articleUseCase: ArticleUseCase(
-        articleRepository: DefaultArticleRepository()
-      ),
-      commentsUseCase: CommentsUseCase(
-        commentRepository: DefaultCommentRespository()
-      )
-    )
-    let presenter = DetailPresenter()
-
-    presenter.dataStore = interactor
-    presenter.viewController = viewController
-
-    viewController.interactor = interactor
-    viewController.presenter = presenter
   }
 
   override func loadView() {
@@ -66,20 +47,20 @@ final class DetailViewController: UIViewController {
   }
 
   @MainActor
-  func reload() {
+  private func reload() {
     Task {
       do {
         // business logic processing
-        try await self.interactor?.fetch()
-        
-        // presentation logic processing
-        self.presenter?.makeContent()
+        try await self.interactor.fetch()
 
-        // update UI
-        self.detailView.tableView.reloadData()
+        // presentation logic processing
+        self.presenter.makeContent()
       } catch {
-        fatalError()
+        // TODO: handle error
       }
+
+      // update UI
+      self.detailView.tableView.reloadData()
     }
   }
 }
@@ -97,7 +78,7 @@ extension DetailViewController: UITableViewDataSource {
     case .info:
       return 1
     case .comment:
-      return self.presenter?.comments.count ?? 0
+      return self.presenter.comments.count
     case .none:
       return 0
     }
@@ -108,15 +89,14 @@ extension DetailViewController: UITableViewDataSource {
     switch Section(rawValue: indexPath.section) {
     case .info:
       if let cell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell {
-        guard let info = self.presenter?.info else { return cell }
+        guard let info = self.presenter.info else { return cell }
         cell.configure(viewModel: info)
         return cell
       }
 
     case .comment:
       if let cell = tableView.dequeueReusableCell(withIdentifier: DetailCommentCell.identifier, for: indexPath) as? DetailCommentCell {
-        guard let comment = self.presenter?.comments[indexPath.row] else { return cell }
-        cell.configure(viewModel: comment)
+        cell.configure(viewModel: self.presenter.comments[indexPath.row])
         return cell
       }
 

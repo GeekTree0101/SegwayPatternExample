@@ -20,36 +20,17 @@ final class FeedViewController: UIViewController {
   }
 
   // MARK: Prop
-  private var presenter: FeedPresentationLogic!
-  private var interactor: FeedBusinessLogic!
+  private let presenter: FeedPresentationLogic
+  private let interactor: FeedBusinessLogic
 
-  init() {
+  init(interactor: FeedBusinessLogic, presenter: FeedPresentationLogic) {
+    self.interactor = interactor
+    self.presenter = presenter
     super.init(nibName: nil, bundle: nil)
-    self.configure()
   }
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-
-  func configure() {
-    let viewController = self
-    let interactor = FeedInteractor(
-      articlesUseCase: ArticlesUseCase(
-        articleRepository: DefaultArticleRepository()
-      ),
-      authUserUseCase: AuthUserUseCase(
-        userRepository: DefaultUserRepository()
-      )
-    )
-
-    let presenter = FeedPresenter()
-
-    presenter.dataStore = interactor
-    presenter.viewController = viewController
-
-    viewController.interactor = interactor
-    viewController.presenter = presenter
   }
 
   override func loadView() {

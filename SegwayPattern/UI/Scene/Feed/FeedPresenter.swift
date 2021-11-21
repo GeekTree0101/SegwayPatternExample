@@ -24,6 +24,12 @@ final class FeedPresenter: FeedPresentationLogic {
   var headerViewModel: HeaderCell.ViewModel = .init(welcomeMessage: "Loading...")
   var feedItems: [FeedCell.ViewModel] = []
 
+  private let detailBuilder: DetailBuilder
+
+  init(detailBuilder: DetailBuilder) {
+    self.detailBuilder = detailBuilder
+  }
+
   func makeHeaderViewModel() {
     let name = self.dataStore.authUser?.name ?? "???"
     self.headerViewModel = .init(
@@ -43,7 +49,7 @@ final class FeedPresenter: FeedPresentationLogic {
 
   func presentDetail(index: Int) {
     let article = self.dataStore.articles[index]
-    let detailViewController = DetailViewController(articleID: article.id)
+    let detailViewController =  self.detailBuilder.detailViewController(articleID: article.id)
     self.viewController?.present(detailViewController, animated: true, completion: nil)
   }
 

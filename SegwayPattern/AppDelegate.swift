@@ -7,6 +7,8 @@
 
 import UIKit
 
+import NeedleFoundation
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    registerProviderFactories()
     self.window = UIWindow(frame: UIScreen.main.bounds)
     self.window?.makeKeyAndVisible()
-    self.window?.rootViewController = FeedViewController()
+    self.window?.rootViewController = RootComponent().rootViewController()
     return true
   }
 
