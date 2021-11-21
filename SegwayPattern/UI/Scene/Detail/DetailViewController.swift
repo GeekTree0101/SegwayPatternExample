@@ -35,10 +35,10 @@ final class DetailViewController: UIViewController {
   }
 
   override func loadView() {
-    let detailView = DetailView()
-    detailView.tableView.dataSource = self
-    detailView.tableView.delegate = self
-    self.view = detailView
+    self.view = DetailView().then {
+      $0.tableView.dataSource = self
+      $0.tableView.delegate = self
+    }
   }
 
   override func viewDidLoad() {

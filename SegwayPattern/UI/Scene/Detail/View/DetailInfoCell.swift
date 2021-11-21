@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 import FlexLayout
+import Then
 
 final class DetailInfoCell: UITableViewCell {
   
@@ -20,28 +21,25 @@ final class DetailInfoCell: UITableViewCell {
     let author: String
   }
 
-  private let titleLabel: UILabel = {
+  private let titleLabel = UILabel().then {
     $0.font = UIFont.boldSystemFont(ofSize: 24.0)
     $0.textAlignment = .center
     $0.numberOfLines = 0
-    return $0
-  }(UILabel())
+  }
 
-  private let descLabel: UILabel = {
+  private let descLabel = UILabel().then {
     $0.font = UIFont.systemFont(ofSize: 16.0)
     $0.textColor = UIColor.gray
     $0.textAlignment = .center
     $0.numberOfLines = 0
-    return $0
-  }(UILabel())
+  }
 
-  private let authorLabel: UILabel = {
+  private let authorLabel = UILabel().then {
     $0.font = UIFont.systemFont(ofSize: 14.0)
     $0.textColor = UIColor.lightGray
     $0.textAlignment = .center
     $0.numberOfLines = 0
-    return $0
-  }(UILabel())
+  }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)

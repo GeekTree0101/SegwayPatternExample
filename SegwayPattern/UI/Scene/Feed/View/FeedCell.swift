@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 import FlexLayout
+import Then
 
 final class FeedCell: UITableViewCell {
 
@@ -20,22 +21,19 @@ final class FeedCell: UITableViewCell {
 
   static let identifier = "\(type(of: self))"
 
-  private let titleLabel: UILabel = {
+  private let titleLabel = UILabel().then {
     $0.font = UIFont.boldSystemFont(ofSize: 24.0)
-    return $0
-  }(UILabel())
+  }
 
-  private let descLabel: UILabel = {
+  private let descLabel = UILabel().then {
     $0.font = UIFont.systemFont(ofSize: 16.0)
     $0.textColor = UIColor.gray
-    return $0
-  }(UILabel())
+  }
 
-  private let authorLabel: UILabel = {
+  private let authorLabel = UILabel().then {
     $0.font = UIFont.systemFont(ofSize: 14.0)
     $0.textColor = UIColor.lightGray
-    return $0
-  }(UILabel())
+  }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)

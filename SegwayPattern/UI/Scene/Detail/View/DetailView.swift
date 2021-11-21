@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 
 import FlexLayout
+import Then
 
 final class DetailView: UIView {
 
-  let tableView: UITableView = {
+  let tableView = UITableView(frame: .zero, style: .plain).then {
     $0.tableFooterView = UIView()
     $0.separatorStyle = .none
     $0.register(DetailInfoCell.self, forCellReuseIdentifier: DetailInfoCell.identifier)
     $0.register(DetailCommentCell.self, forCellReuseIdentifier: DetailCommentCell.identifier)
-    return $0
-  }(UITableView(frame: .zero, style: .plain))
+  }
 
   init() {
     super.init(frame: .zero)

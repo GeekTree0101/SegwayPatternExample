@@ -34,10 +34,10 @@ final class FeedViewController: UIViewController {
   }
 
   override func loadView() {
-    let feedView = FeedView()
-    feedView.tableView.dataSource = self
-    feedView.tableView.delegate = self
-    self.view = feedView
+    self.view = FeedView().then {
+      $0.tableView.dataSource = self
+      $0.tableView.delegate = self
+    }
   }
 
   override func viewDidLoad() {

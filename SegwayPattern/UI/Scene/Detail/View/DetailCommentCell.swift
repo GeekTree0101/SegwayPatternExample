@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 import FlexLayout
+import Then
 
 final class DetailCommentCell: UITableViewCell {
   
@@ -19,19 +20,17 @@ final class DetailCommentCell: UITableViewCell {
     let content: String
   }
 
-  private let contentLabel: UILabel = {
+  private let contentLabel = UILabel().then {
     $0.font = UIFont.systemFont(ofSize: 16.0)
     $0.textColor = UIColor.black
     $0.textAlignment = .center
-    return $0
-  }(UILabel())
+  }
 
-  private let authorLabel: UILabel = {
+  private let authorLabel = UILabel().then {
     $0.font = UIFont.boldSystemFont(ofSize: 14.0)
     $0.textColor = UIColor.black
     $0.textAlignment = .center
-    return $0
-  }(UILabel())
+  }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 import FlexLayout
+import Then
 
 final class HeaderCell: UITableViewCell {
 
@@ -18,11 +19,10 @@ final class HeaderCell: UITableViewCell {
 
   static let identifier = "\(type(of: self))"
 
-  private let titleLabel: UILabel = {
+  private let titleLabel = UILabel().then {
     $0.font = UIFont.boldSystemFont(ofSize: 32.0)
     $0.numberOfLines = 0
-    return $0
-  }(UILabel())
+  }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)

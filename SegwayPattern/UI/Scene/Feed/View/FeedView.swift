@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 
 import FlexLayout
+import Then
 
 final class FeedView: UIView {
 
-  let tableView: UITableView = {
+  let tableView = UITableView(frame: .zero, style: .plain).then {
     $0.tableFooterView = UIView()
     $0.separatorStyle = .none
     $0.register(FeedCell.self, forCellReuseIdentifier: FeedCell.identifier)
     $0.register(HeaderCell.self, forCellReuseIdentifier: HeaderCell.identifier)
-    return $0
-  }(UITableView(frame: .zero, style: .plain))
+  }
 
   init() {
     super.init(frame: .zero)
