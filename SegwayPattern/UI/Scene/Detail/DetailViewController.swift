@@ -57,7 +57,7 @@ final class DetailViewController: UIViewController {
         // presentation logic processing
         self.presenter.makeContent()
       } catch {
-        // TODO: handle error
+        self.detailView.showErrorToast(error: error)
       }
 
       // update UI

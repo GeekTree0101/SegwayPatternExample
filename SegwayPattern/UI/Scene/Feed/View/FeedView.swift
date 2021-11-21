@@ -10,8 +10,11 @@ import UIKit
 
 import FlexLayout
 import Then
+import Toast
 
 final class FeedView: UIView {
+
+  let contentView = UIView()
 
   let tableView = UITableView(frame: .zero, style: .plain).then {
     $0.tableFooterView = UIView()
@@ -24,7 +27,9 @@ final class FeedView: UIView {
     super.init(frame: .zero)
     self.backgroundColor = UIColor.systemBackground
     self.flex.define { root in
-      root.addItem(self.tableView).width(100%).height(100%)
+      root.addItem(self.contentView).define { content in
+        content.addItem(self.tableView).width(100%).height(100%)
+      }.width(100%).height(100%)
     }
   }
 
@@ -35,5 +40,9 @@ final class FeedView: UIView {
   override func layoutSubviews() {
     super.layoutSubviews()
     self.flex.layout()
+  }
+
+  func showErrorToast(error: Error) {
+    self.contentView.makeToast(error.localizedDescription)
   }
 }

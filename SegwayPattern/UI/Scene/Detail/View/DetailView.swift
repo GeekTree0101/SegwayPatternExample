@@ -10,6 +10,7 @@ import UIKit
 
 import FlexLayout
 import Then
+import Toast
 
 final class DetailView: UIView {
 
@@ -21,11 +22,15 @@ final class DetailView: UIView {
     $0.register(DetailCommentCell.self, forCellReuseIdentifier: DetailCommentCell.identifier)
   }
 
+  let contentView = UIView()
+
   init() {
     super.init(frame: .zero)
     self.backgroundColor = UIColor.systemBackground
     self.flex.define { root in
-      root.addItem(self.tableView).width(100%).height(100%)
+      root.addItem(self.contentView).define { content in
+        content.addItem(self.tableView).width(100%).height(100%)
+      }.width(100%).height(100%)
     }
   }
 
@@ -36,5 +41,9 @@ final class DetailView: UIView {
   override func layoutSubviews() {
     super.layoutSubviews()
     self.flex.layout()
+  }
+
+  func showErrorToast(error: Error) {
+    self.contentView.makeToast(error.localizedDescription)
   }
 }

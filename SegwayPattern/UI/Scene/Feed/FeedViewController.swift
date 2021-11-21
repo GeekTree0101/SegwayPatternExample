@@ -57,7 +57,7 @@ final class FeedViewController: UIViewController {
         self.presenter.mappingArticlesToFeedItems()
 
       } catch {
-        // TODO: handle error
+        self.feedView.showErrorToast(error: error)
       }
 
       // update UI

@@ -19,6 +19,7 @@
 		DAB93ABE274A8994002DE2F9 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93ABD274A8994002DE2F9 /* FeedViewControllerTests.swift */; };
 		DAB93AC1274A8B8D002DE2F9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DAB93AC0274A8B8D002DE2F9 /* Then */; };
 		DAB93AC3274A8F6D002DE2F9 /* DetailCommentHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93AC2274A8F6D002DE2F9 /* DetailCommentHeaderCell.swift */; };
+		DAB93AC9274A922E002DE2F9 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = DAB93AC8274A922E002DE2F9 /* Toast */; };
 		DAC866ED2746889300272FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866EC2746889300272FC9 /* AppDelegate.swift */; };
 		DAC866F12746889300272FC9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866F02746889300272FC9 /* FeedViewController.swift */; };
 		DAC866F62746889400272FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC866F52746889400272FC9 /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB93AC9274A922E002DE2F9 /* Toast in Frameworks */,
 				DAB93AA727492F9C002DE2F9 /* NeedleFoundation in Frameworks */,
 				DAB93AC1274A8B8D002DE2F9 /* Then in Frameworks */,
 				DAC8675A2746900B00272FC9 /* FlexLayout in Frameworks */,
@@ -336,6 +338,7 @@
 				DAC867592746900B00272FC9 /* FlexLayout */,
 				DAB93AA627492F9C002DE2F9 /* NeedleFoundation */,
 				DAB93AC0274A8B8D002DE2F9 /* Then */,
+				DAB93AC8274A922E002DE2F9 /* Toast */,
 			);
 			productName = SegwayPattern;
 			productReference = DAC866E92746889300272FC9 /* SegwayPattern.app */;
@@ -394,6 +397,7 @@
 				DAC867582746900B00272FC9 /* XCRemoteSwiftPackageReference "FlexLayout" */,
 				DAB93AA527492F9C002DE2F9 /* XCRemoteSwiftPackageReference "needle" */,
 				DAB93ABF274A8B8D002DE2F9 /* XCRemoteSwiftPackageReference "Then" */,
+				DAB93AC7274A922E002DE2F9 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = DAC866EA2746889300272FC9 /* Products */;
 			projectDirPath = "";
@@ -799,6 +803,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		DAB93AC7274A922E002DE2F9 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		DAC867582746900B00272FC9 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:layoutBox/FlexLayout.git";
@@ -824,6 +836,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DAB93ABF274A8B8D002DE2F9 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		DAB93AC8274A922E002DE2F9 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAB93AC7274A922E002DE2F9 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 		DAC867592746900B00272FC9 /* FlexLayout */ = {
 			isa = XCSwiftPackageProductDependency;
