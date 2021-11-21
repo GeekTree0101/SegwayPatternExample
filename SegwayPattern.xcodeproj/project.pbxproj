@@ -115,6 +115,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DAB93AB5274A8586002DE2F9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DAB93AB6274A858D002DE2F9 /* Scene */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DAB93AB6274A858D002DE2F9 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				DAB93AB7274A8591002DE2F9 /* Detail */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		DAB93AB7274A8591002DE2F9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DAC867692747528F00272FC9 /* DetailInteractorTests.swift */,
+				DAC8676B2747529800272FC9 /* DetailPresenterTests.swift */,
+				DAC8676D274752A100272FC9 /* DetailViewControllerTests.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		DAC866E02746889300272FC9 = {
 			isa = PBXGroup;
 			children = (
@@ -152,9 +178,7 @@
 		DAC867022746889500272FC9 /* SegwayPatternTests */ = {
 			isa = PBXGroup;
 			children = (
-				DAC867692747528F00272FC9 /* DetailInteractorTests.swift */,
-				DAC8676B2747529800272FC9 /* DetailPresenterTests.swift */,
-				DAC8676D274752A100272FC9 /* DetailViewControllerTests.swift */,
+				DAB93AB5274A8586002DE2F9 /* UI */,
 				DAB93AB3274A8132002DE2F9 /* XCTestCase+Extension.swift */,
 			);
 			path = SegwayPatternTests;
