@@ -17,6 +17,7 @@
 		DAB93ABA274A85B5002DE2F9 /* FeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93AB9274A85B5002DE2F9 /* FeedInteractorTests.swift */; };
 		DAB93ABC274A8707002DE2F9 /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93ABB274A8707002DE2F9 /* FeedPresenterTests.swift */; };
 		DAB93ABE274A8994002DE2F9 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93ABD274A8994002DE2F9 /* FeedViewControllerTests.swift */; };
+		DAB93AC1274A8B8D002DE2F9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DAB93AC0274A8B8D002DE2F9 /* Then */; };
 		DAC866ED2746889300272FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866EC2746889300272FC9 /* AppDelegate.swift */; };
 		DAC866F12746889300272FC9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866F02746889300272FC9 /* FeedViewController.swift */; };
 		DAC866F62746889400272FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC866F52746889400272FC9 /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB93AA727492F9C002DE2F9 /* NeedleFoundation in Frameworks */,
+				DAB93AC1274A8B8D002DE2F9 /* Then in Frameworks */,
 				DAC8675A2746900B00272FC9 /* FlexLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +332,7 @@
 			packageProductDependencies = (
 				DAC867592746900B00272FC9 /* FlexLayout */,
 				DAB93AA627492F9C002DE2F9 /* NeedleFoundation */,
+				DAB93AC0274A8B8D002DE2F9 /* Then */,
 			);
 			productName = SegwayPattern;
 			productReference = DAC866E92746889300272FC9 /* SegwayPattern.app */;
@@ -387,6 +390,7 @@
 			packageReferences = (
 				DAC867582746900B00272FC9 /* XCRemoteSwiftPackageReference "FlexLayout" */,
 				DAB93AA527492F9C002DE2F9 /* XCRemoteSwiftPackageReference "needle" */,
+				DAB93ABF274A8B8D002DE2F9 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = DAC866EA2746889300272FC9 /* Products */;
 			projectDirPath = "";
@@ -783,6 +787,14 @@
 				minimumVersion = 0.9.1;
 			};
 		};
+		DAB93ABF274A8B8D002DE2F9 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		DAC867582746900B00272FC9 /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:layoutBox/FlexLayout.git";
@@ -803,6 +815,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DAB93AA527492F9C002DE2F9 /* XCRemoteSwiftPackageReference "needle" */;
 			productName = NeedleFoundationTest;
+		};
+		DAB93AC0274A8B8D002DE2F9 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAB93ABF274A8B8D002DE2F9 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 		DAC867592746900B00272FC9 /* FlexLayout */ = {
 			isa = XCSwiftPackageProductDependency;
