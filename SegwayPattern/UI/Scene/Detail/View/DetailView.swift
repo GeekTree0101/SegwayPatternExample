@@ -17,6 +17,7 @@ final class DetailView: UIView {
     $0.tableFooterView = UIView()
     $0.separatorStyle = .none
     $0.register(DetailInfoCell.self, forCellReuseIdentifier: DetailInfoCell.identifier)
+    $0.register(DetailCommentHeaderCell.self, forCellReuseIdentifier: DetailCommentHeaderCell.identifier)
     $0.register(DetailCommentCell.self, forCellReuseIdentifier: DetailCommentCell.identifier)
   }
 

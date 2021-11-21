@@ -85,4 +85,10 @@ final class DetailInfoCell: UITableViewCell {
     self.authorLabel.flex.markDirty()
     self.setNeedsLayout()
   }
+
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
+    self.contentView.bounds.size.width = size.width
+    self.contentView.flex.layout(mode: .adjustHeight)
+    return self.contentView.frame.size
+  }
 }

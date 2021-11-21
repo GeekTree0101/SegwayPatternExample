@@ -18,6 +18,7 @@
 		DAB93ABC274A8707002DE2F9 /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93ABB274A8707002DE2F9 /* FeedPresenterTests.swift */; };
 		DAB93ABE274A8994002DE2F9 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93ABD274A8994002DE2F9 /* FeedViewControllerTests.swift */; };
 		DAB93AC1274A8B8D002DE2F9 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DAB93AC0274A8B8D002DE2F9 /* Then */; };
+		DAB93AC3274A8F6D002DE2F9 /* DetailCommentHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93AC2274A8F6D002DE2F9 /* DetailCommentHeaderCell.swift */; };
 		DAC866ED2746889300272FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866EC2746889300272FC9 /* AppDelegate.swift */; };
 		DAC866F12746889300272FC9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866F02746889300272FC9 /* FeedViewController.swift */; };
 		DAC866F62746889400272FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC866F52746889400272FC9 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		DAB93AB9274A85B5002DE2F9 /* FeedInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractorTests.swift; sourceTree = "<group>"; };
 		DAB93ABB274A8707002DE2F9 /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
 		DAB93ABD274A8994002DE2F9 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
+		DAB93AC2274A8F6D002DE2F9 /* DetailCommentHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentHeaderCell.swift; sourceTree = "<group>"; };
 		DAC866E92746889300272FC9 /* SegwayPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegwayPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC866EC2746889300272FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC866F02746889300272FC9 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				DAC8675D274733DD00272FC9 /* DetailView.swift */,
 				DAC8675F2747341600272FC9 /* DetailInfoCell.swift */,
+				DAB93AC2274A8F6D002DE2F9 /* DetailCommentHeaderCell.swift */,
 				DAC867612747345500272FC9 /* DetailCommentCell.swift */,
 			);
 			path = View;
@@ -470,6 +473,7 @@
 				DAC8675C2746936B00272FC9 /* FeedView.swift in Sources */,
 				DAC8674727468D2C00272FC9 /* UserRepository.swift in Sources */,
 				DAC867602747341600272FC9 /* DetailInfoCell.swift in Sources */,
+				DAB93AC3274A8F6D002DE2F9 /* DetailCommentHeaderCell.swift in Sources */,
 				DAC8674B27468DEA00272FC9 /* ArticleUseCase.swift in Sources */,
 				DAC8673A27468A0A00272FC9 /* Comment.swift in Sources */,
 				DAC8673C27468A3F00272FC9 /* ArticleRepository.swift in Sources */,

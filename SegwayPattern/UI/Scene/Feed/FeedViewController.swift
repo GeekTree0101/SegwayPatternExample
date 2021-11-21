@@ -125,13 +125,6 @@ extension FeedViewController: UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    switch Section(rawValue: indexPath.section) {
-    case .header:
-      return 240
-    case .item:
-      return 120
-    case .none:
-      return 0
-    }
+    return UITableView.automaticDimension
   }
 }

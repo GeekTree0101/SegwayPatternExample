@@ -12,6 +12,7 @@ final class DetailViewController: UIViewController {
 
   enum Section: Int, CaseIterable {
     case info
+    case commentHeader
     case comment
   }
 
@@ -77,6 +78,8 @@ extension DetailViewController: UITableViewDataSource {
     switch Section(rawValue: section) {
     case .info:
       return 1
+    case .commentHeader:
+      return 1
     case .comment:
       return self.presenter.comments.count
     case .none:
@@ -91,6 +94,10 @@ extension DetailViewController: UITableViewDataSource {
       if let cell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell {
         guard let info = self.presenter.info else { return cell }
         cell.configure(viewModel: info)
+        return cell
+      }
+    case .commentHeader:
+      if let cell = tableView.dequeueReusableCell(withIdentifier: DetailCommentHeaderCell.identifier, for: indexPath) as? DetailCommentHeaderCell {
         return cell
       }
 
@@ -112,18 +119,6 @@ extension DetailViewController: UITableViewDataSource {
 extension DetailViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-    switch Section(rawValue: indexPath.section) {
-    case .info:
-      return 240.0
-
-    case .comment:
-      return 80.0
-
-    case .none:
-      break
-    }
-
-    return 0.0
+    return UITableView.automaticDimension
   }
 }

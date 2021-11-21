@@ -1,8 +1,8 @@
 //
-//  HeaderCell.swift
+//  DetailCommentHeaderCell.swift
 //  SegwayPattern
 //
-//  Created by Geektree0101 on 2021/11/19.
+//  Created by Geektree0101 on 2021/11/21.
 //
 
 import Foundation
@@ -11,26 +11,22 @@ import UIKit
 import FlexLayout
 import Then
 
-final class HeaderCell: UITableViewCell {
-
-  struct ViewModel {
-    let welcomeMessage: String
-  }
+final class DetailCommentHeaderCell: UITableViewCell {
 
   static let identifier = "\(type(of: self))"
 
   private let titleLabel = UILabel().then {
-    $0.font = UIFont.boldSystemFont(ofSize: 32.0)
-    $0.numberOfLines = 0
+    $0.font = UIFont.boldSystemFont(ofSize: 16.0)
+    $0.textColor = UIColor.black
+    $0.text = "Comments"
   }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     self.contentView.flex.define { root in
-      root
-        .addItem(self.titleLabel)
+      root.addItem(self.titleLabel)
         .marginHorizontal(16.0)
-        .marginVertical(30.0)
+        .marginVertical(24.0)
     }
   }
 
@@ -38,20 +34,9 @@ final class HeaderCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    self.titleLabel.text = nil
-  }
-
   override func layoutSubviews() {
     super.layoutSubviews()
     self.contentView.flex.layout(mode: .adjustHeight)
-  }
-
-  func configure(viewModel: ViewModel) {
-    self.titleLabel.text = viewModel.welcomeMessage
-    self.titleLabel.flex.markDirty()
-    self.setNeedsLayout()
   }
 
   override func sizeThatFits(_ size: CGSize) -> CGSize {

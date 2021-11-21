@@ -20,6 +20,11 @@ final class DetailCommentCell: UITableViewCell {
     let content: String
   }
 
+  private let thumbnailImageView = UIImageView().then {
+    $0.backgroundColor = UIColor.lightGray
+    $0.clipsToBounds = true
+  }
+
   private let contentLabel = UILabel().then {
     $0.font = UIFont.systemFont(ofSize: 16.0)
     $0.textColor = UIColor.black
@@ -42,7 +47,7 @@ final class DetailCommentCell: UITableViewCell {
         .justifyContent(.start)
         .margin(12.0)
         .define { row in
-          row.addItem().size(48.0).backgroundColor(.gray).define {
+          row.addItem(self.thumbnailImageView).size(48.0).backgroundColor(.gray).define {
             $0.view?.layer.cornerRadius = 24.0
           }
           row.addItem().width(12.0)
@@ -65,6 +70,7 @@ final class DetailCommentCell: UITableViewCell {
 
   override func prepareForReuse() {
     super.prepareForReuse()
+    self.thumbnailImageView.image = nil
     self.contentLabel.text = nil
     self.authorLabel.text = nil
   }
@@ -75,7 +81,14 @@ final class DetailCommentCell: UITableViewCell {
   }
 
   func configure(viewModel: ViewModel) {
+    self.thumbnailImageView.image = UIImage(named: "david")
     self.contentLabel.text = viewModel.content
     self.authorLabel.text = viewModel.author
+  }
+
+  override func sizeThatFits(_ size: CGSize) -> CGSize {
+    self.contentView.bounds.size.width = size.width
+    self.contentView.flex.layout(mode: .adjustHeight)
+    return self.contentView.frame.size
   }
 }
