@@ -15,7 +15,7 @@ protocol FeedDataStore: AnyObject {
 
 protocol FeedBusinessLogic {
 
-  func fetch() async
+  func fetch() async throws
 }
 
 final class FeedInteractor: FeedDataStore {
@@ -42,7 +42,7 @@ final class FeedInteractor: FeedDataStore {
 
 extension FeedInteractor: FeedBusinessLogic {
 
-  func fetch() async {
+  func fetch() async throws {
     self.authUser = await self.authUserUseCase.me()
     self.articles = await self.articlesUseCase.articles()
   }

@@ -48,6 +48,7 @@ final class FeedPresenter: FeedPresentationLogic {
   }
 
   func presentDetail(index: Int) {
+    guard self.dataStore.articles.count > index else { return }
     let article = self.dataStore.articles[index]
     let detailViewController =  self.detailBuilder.detailViewController(articleID: article.id)
     self.viewController?.present(detailViewController, animated: true, completion: nil)

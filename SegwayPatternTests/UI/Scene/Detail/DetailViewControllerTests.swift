@@ -14,9 +14,12 @@ class DetailViewControllerTests: XCTestCase {
   final class DetailInteractorSpy: DetailBusinessLogic {
 
     var fetchCalled: Int = 0
+    var fetchErrorStub: Error?
 
     func fetch() async throws {
       self.fetchCalled += 1
+      guard let error = fetchErrorStub else { return }
+      throw error
     }
 
   }
@@ -55,7 +58,7 @@ class DetailViewControllerTests: XCTestCase {
   }
 
   @MainActor
-  func test_reload() async {
+  func test_reload_on_success() async {
     // given
     let viewController = self.createViewController()
 
@@ -68,5 +71,33 @@ class DetailViewControllerTests: XCTestCase {
     XCTAssertEqual(self.interactor.fetchCalled, 1)
     XCTAssertEqual(self.presenter.makeContentCalled, 1)
   }
+
+  @MainActor
+  func test_reload_on_failure() async {
+    // given
+    let viewController = self.createViewController()
+    self.interactor.fetchErrorStub = NSError(domain: "-1", code: -1, userInfo: nil)
+
+    // when
+    await MainActorTaskBlock {
+      viewController.loadViewIfNeeded()
+    }
+
+    // then
+    XCTAssertEqual(self.interactor.fetchCalled, 1)
+    XCTAssertEqual(self.presenter.makeContentCalled, 0)
+  }
   
+}
+
+// MARK: - dummy
+
+extension DetailViewController {
+
+  static func dummy() -> DetailViewController {
+    return DetailViewController(
+      interactor: DetailInteractor.dummy(),
+      presenter: DetailPresenter.dummy()
+    )
+  }
 }

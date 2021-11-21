@@ -76,3 +76,12 @@ class DetailPresenterTests: XCTestCase {
     XCTAssertEqual(presenter.comments.first?.author, "david")
   }
 }
+
+// MARK: - dummy
+
+extension DetailPresenter {
+
+  static func dummy() -> DetailPresenter {
+    return DetailPresenter()
+  }
+}

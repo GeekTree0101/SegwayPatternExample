@@ -48,12 +48,17 @@ final class FeedViewController: UIViewController {
   @MainActor
   func reload() {
     Task {
-      // business logic processing
-      await self.interactor.fetch()
+      do {
+        // business logic processing
+        try await self.interactor.fetch()
 
-      // presentation logic processing
-      self.presenter.makeHeaderViewModel()
-      self.presenter.mappingArticlesToFeedItems()
+        // presentation logic processing
+        self.presenter.makeHeaderViewModel()
+        self.presenter.mappingArticlesToFeedItems()
+
+      } catch {
+        // TODO: handle error
+      }
 
       // update UI
       self.feedView.tableView.reloadData()

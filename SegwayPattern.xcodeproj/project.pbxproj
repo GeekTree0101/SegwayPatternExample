@@ -14,6 +14,9 @@
 		DAB93AB027493172002DE2F9 /* FeedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93AAF27493172002DE2F9 /* FeedComponent.swift */; };
 		DAB93AB227493373002DE2F9 /* DetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93AB127493373002DE2F9 /* DetailComponent.swift */; };
 		DAB93AB4274A8132002DE2F9 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93AB3274A8132002DE2F9 /* XCTestCase+Extension.swift */; };
+		DAB93ABA274A85B5002DE2F9 /* FeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93AB9274A85B5002DE2F9 /* FeedInteractorTests.swift */; };
+		DAB93ABC274A8707002DE2F9 /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93ABB274A8707002DE2F9 /* FeedPresenterTests.swift */; };
+		DAB93ABE274A8994002DE2F9 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB93ABD274A8994002DE2F9 /* FeedViewControllerTests.swift */; };
 		DAC866ED2746889300272FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866EC2746889300272FC9 /* AppDelegate.swift */; };
 		DAC866F12746889300272FC9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC866F02746889300272FC9 /* FeedViewController.swift */; };
 		DAC866F62746889400272FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC866F52746889400272FC9 /* Assets.xcassets */; };
@@ -61,6 +64,9 @@
 		DAB93AAF27493172002DE2F9 /* FeedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedComponent.swift; sourceTree = "<group>"; };
 		DAB93AB127493373002DE2F9 /* DetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailComponent.swift; sourceTree = "<group>"; };
 		DAB93AB3274A8132002DE2F9 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		DAB93AB9274A85B5002DE2F9 /* FeedInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractorTests.swift; sourceTree = "<group>"; };
+		DAB93ABB274A8707002DE2F9 /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
+		DAB93ABD274A8994002DE2F9 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		DAC866E92746889300272FC9 /* SegwayPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegwayPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC866EC2746889300272FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC866F02746889300272FC9 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 		DAB93AB6274A858D002DE2F9 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				DAB93AB8274A85AE002DE2F9 /* Feed */,
 				DAB93AB7274A8591002DE2F9 /* Detail */,
 			);
 			path = Scene;
@@ -139,6 +146,16 @@
 				DAC8676D274752A100272FC9 /* DetailViewControllerTests.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		DAB93AB8274A85AE002DE2F9 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				DAB93AB9274A85B5002DE2F9 /* FeedInteractorTests.swift */,
+				DAB93ABB274A8707002DE2F9 /* FeedPresenterTests.swift */,
+				DAB93ABD274A8994002DE2F9 /* FeedViewControllerTests.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		DAC866E02746889300272FC9 = {
@@ -461,8 +478,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB93AB4274A8132002DE2F9 /* XCTestCase+Extension.swift in Sources */,
+				DAB93ABE274A8994002DE2F9 /* FeedViewControllerTests.swift in Sources */,
+				DAB93ABA274A85B5002DE2F9 /* FeedInteractorTests.swift in Sources */,
 				DAC8676C2747529800272FC9 /* DetailPresenterTests.swift in Sources */,
 				DAC8676A2747528F00272FC9 /* DetailInteractorTests.swift in Sources */,
+				DAB93ABC274A8707002DE2F9 /* FeedPresenterTests.swift in Sources */,
 				DAC8676E274752A100272FC9 /* DetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

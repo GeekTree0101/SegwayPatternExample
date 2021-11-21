@@ -98,3 +98,20 @@ class DetailInteractorTests: XCTestCase {
     XCTAssertNil(sut.article)
   }
 }
+
+// MARK: - dummy
+
+extension DetailInteractor {
+
+  static func dummy() -> DetailInteractor {
+    return DetailInteractor(
+      articleID: -1,
+      articleUseCase: ArticleUseCase(
+        articleRepository: DetailInteractorTests.ArticleRepositorySpy()
+      ),
+      commentsUseCase: CommentsUseCase(
+        commentRepository: DetailInteractorTests.CommentRespositorySpy()
+      )
+    )
+  }
+}
